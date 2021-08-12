@@ -7,7 +7,7 @@
 | nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
-| last-name          | string | null: false               |
+| last_name          | string | null: false               |
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
@@ -28,7 +28,7 @@
 | status_id          | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
 | delivery_area_id   | integer    | null: false                    |
-| delivery_days_id   | integer    | null: false                    |
+| delivery_day_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
