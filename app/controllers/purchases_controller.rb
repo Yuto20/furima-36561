@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
 
   def index
     @purcahse_residence = PurchaseResidence.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -16,7 +17,6 @@ class PurchasesController < ApplicationController
 
   private
   def purcahse_params
-    binding.pry
     params.permit(:postal_code, :prefecture_id, :city, :address, :building_name, :phone_num, :item_id).merge(user_id: current_user.id)
   end
 end
