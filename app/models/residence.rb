@@ -1,3 +1,3 @@
 class Residence < ApplicationRecord
-  belongs_to :purcahse
+  belongs_to :purchase
 end
