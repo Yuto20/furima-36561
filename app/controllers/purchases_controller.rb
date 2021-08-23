@@ -1,10 +1,10 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :get_item_params
+  before_action :redirect_root
 
   def index
     @purchase_residence = PurchaseResidence.new
-    redirect_to root_path if current_user == @item.user || @item.purchase.present?
   end
 
   def create
@@ -19,6 +19,10 @@ class PurchasesController < ApplicationController
   end
 
   private
+
+  def redirect_root
+    redirect_to root_path if current_user == @item.user || @item.purchase.present?
+  end
 
   def get_item_params
     @item = Item.find(params[:item_id])
