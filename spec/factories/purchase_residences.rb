@@ -10,6 +10,6 @@ FactoryBot.define do
     item_id { 2 }
     association :item
     user { item.user }
-    token {"tok_abcdefghijk00000000000000000"}
+    token { 'tok_abcdefghijk00000000000000000' }
   end
 end

@@ -51,32 +51,32 @@ RSpec.describe PurchaseResidence, type: :model do
     it 'postal_codeが全角文字列だと保存できない' do
       @purchase_residence.postal_code = '１２３-４５６７'
       @purchase_residence.valid?
-      expect(@purchase_residence.errors.full_messages).to include("Postal code Input correctly")
+      expect(@purchase_residence.errors.full_messages).to include('Postal code Input correctly')
     end
     it 'postal_codeにハイフンがないと保存できない' do
       @purchase_residence.postal_code = '1234567'
       @purchase_residence.valid?
-      expect(@purchase_residence.errors.full_messages).to include("Postal code Input correctly")
+      expect(@purchase_residence.errors.full_messages).to include('Postal code Input correctly')
     end
     it 'prefecture_idが0だと保存できない' do
       @purchase_residence.prefecture_id = 0
       @purchase_residence.valid?
-      expect(@purchase_residence.errors.full_messages).to include("Prefecture must be other than 0")
+      expect(@purchase_residence.errors.full_messages).to include('Prefecture must be other than 0')
     end
     it 'phone_numが全角数値だと保存できない' do
       @purchase_residence.phone_num = '０９０１２３４５６７８'
       @purchase_residence.valid?
-      expect(@purchase_residence.errors.full_messages).to include("Phone num Input only number")
+      expect(@purchase_residence.errors.full_messages).to include('Phone num Input only number')
     end
     it 'phone_numが10桁未満だと保存できない' do
       @purchase_residence.phone_num = '090123456'
       @purchase_residence.valid?
-      expect(@purchase_residence.errors.full_messages).to include("Phone num Input only number")
+      expect(@purchase_residence.errors.full_messages).to include('Phone num Input only number')
     end
     it 'phone_numが12桁以上だと保存できない' do
       @purchase_residence.phone_num = '090123456789'
       @purchase_residence.valid?
-      expect(@purchase_residence.errors.full_messages).to include("Phone num Input only number")
+      expect(@purchase_residence.errors.full_messages).to include('Phone num Input only number')
     end
   end
 end

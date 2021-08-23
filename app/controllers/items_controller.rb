@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.purchase.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.purchase.present?
   end
 
   def update
@@ -54,8 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    if @item.user != current_user
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user != current_user
   end
 end
