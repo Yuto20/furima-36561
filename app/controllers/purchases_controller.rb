@@ -1,7 +1,11 @@
 class PurchasesController < ApplicationController
+
   def index
     @purchase_residence = PurchaseResidence.new
     @item = Item.find(params[:item_id])
+    if current_user == @item.user
+      redirect_to root_path
+    end
   end
 
   def create
