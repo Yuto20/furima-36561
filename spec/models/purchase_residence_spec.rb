@@ -43,6 +43,16 @@ RSpec.describe PurchaseResidence, type: :model do
       @purchase_residence.valid?
       expect(@purchase_residence.errors.full_messages).to include("Phone num can't be blank")
     end
+    it 'userが紐付いていないと保存できないこと' do
+      @purchase_residence.user_id = nil
+      @purchase_residence.valid?
+      expect(@purchase_residence.errors.full_messages).to include("User can't be blank")
+    end
+    it 'itemが紐付いていないと保存できないこと' do
+      @purchase_residence.item_id = nil
+      @purchase_residence.valid?
+      expect(@purchase_residence.errors.full_messages).to include("Item can't be blank")
+    end
     it 'tokenが空では登録できないこと' do
       @purchase_residence.token = nil
       @purchase_residence.valid?
