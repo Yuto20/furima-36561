@@ -43,6 +43,11 @@ RSpec.describe PurchaseResidence, type: :model do
       @purchase_residence.valid?
       expect(@purchase_residence.errors.full_messages).to include("Phone num can't be blank")
     end
+    it 'tokenが空では登録できないこと' do
+      @purchase_residence.token = nil
+      @purchase_residence.valid?
+      expect(@purchase_residence.errors.full_messages).to include("Token can't be blank")
+    end
     it 'postal_codeが全角文字列だと保存できない' do
       @purchase_residence.postal_code = '１２３-４５６７'
       @purchase_residence.valid?
